@@ -5,7 +5,7 @@
  * until after username and password have been confirmed.
  *
  */
-package package1;
+package LoginRegister;
 import java.io.IOException;
 public class UserFactory implements FactoryInterface {
     //TODO we need builder methods for each type of user. I will work on this soon, but wanted to get this pushed ASAP so 5crumTeam can do it's thing.

@@ -1,6 +1,6 @@
 //utility class to serve as a makeshift registration process and handle IO. Much of this will be replaced come GUI time, but there are a few
 //that will retain their usefulness.
-package package1;
+package LoginRegister;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 import static java.nio.file.StandardOpenOption.APPEND;
 

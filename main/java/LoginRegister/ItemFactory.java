@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 import java.util.ArrayList;
 import java.util.Arrays;

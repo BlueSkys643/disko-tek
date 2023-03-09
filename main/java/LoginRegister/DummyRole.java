@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 //enum for the list of roles implements the Role interface
 public enum DummyRole implements Role {

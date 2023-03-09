@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 //this is a change
 public abstract class Main {

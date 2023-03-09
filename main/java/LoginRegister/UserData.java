@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 public class UserData {
     /**

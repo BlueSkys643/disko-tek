@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 import java.io.IOException;
 import java.util.ArrayList;

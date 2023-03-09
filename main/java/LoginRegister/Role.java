@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 public interface Role{ //Role interface
     String getRoleName();//signature method to get name of the role: getter

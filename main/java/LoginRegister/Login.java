@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 /*
 RBAC Design Pattern linking the RegSimUserData to Roles and Operations hard-coded users
 && account login auth
@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Objects;

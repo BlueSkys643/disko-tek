@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 public enum ClubOperation {
     //Enum for list of operations(named constants) that the various roles have access to.

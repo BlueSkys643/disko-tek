@@ -1,4 +1,4 @@
-package package1;
+package LoginRegister;
 
 public class PatronUser extends DummyUser{
     public PatronUser(UserData userData) {
