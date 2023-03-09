@@ -14,5 +14,6 @@
     <orderEntry type="library" exported="" name="openjfx.javafx.controls" level="project" />
     <orderEntry type="library" exported="" name="openjfx.javafx.fxml" level="project" />
     <orderEntry type="library" exported="" name="openjfx.javafx.graphics" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.14.2" level="project" />
   </component>
 </module>
