@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="angus-activation-2.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../JavaMail/lib/angus-activation-2.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../JavaMail/lib/angus-mail-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../JavaMail/lib/gson-2.10.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../JavaMail/lib/jakarta.activation-api-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../JavaMail/lib/jakarta.mail-api-2.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
