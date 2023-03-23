@@ -1,8 +1,0 @@
-{
-  "mailHost": "smtp.gmail.com",
-  "mailPort": "587",
-  "encryptionType": "mail.smtp.starttls.enable",
-  "doAuth": true,
-  "userName": "noreply.diskotek@gmail.com",
-  "password": "qwgajirhbkriqksp"
-}
