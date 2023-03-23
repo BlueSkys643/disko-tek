@@ -1,0 +1,253 @@
+classDiagram
+DummyRole ..|> Role: implements
+AdminUser --|> DummyUser: extends
+DummyUser ..|> User: implements
+DummyUser <-- User: contains
+DummyUser <-- AdminUser: contains
+ClubOperation --> DummyRole
+
+FirstSprintDemo --* Scanner: has-a
+FirstSprintDemo --* Login: has-a
+FirstSprintDemo --* Registry: has-a
+FirstSprintDemo --* Objects: has-a
+
+UserFactory ..|> FactoryInterface: implements
+UserFactory --* DummyUser: has-a
+UserFactory --* AdminUser: has-a
+UserFactory --> UserData
+DummyUser <-- PatronUser
+Registry --* UserData: has-a
+ItemFactory --> ItemType: association
+ItemFactory --> ItemData: association
+
+FirstSprintDemo --> Login: uses
+Login --> Registry: uses
+Login --> Scanner: uses
+Login --> Objects: uses
+
+Main --> FirstSprintDemo: creates
+
+PatronUser --|> DummyUser: extends
+PatronUser --* UserData: has-a
+DummyUser --* UserData: has-a
+
+Registry --> UserData: contains
+Registry --* TestClub: has-a
+
+TestClub --* Scanner: has-a
+TestClub --* AdminUser: has-a
+TestClub --* TestMenu: has-a
+TestClub --* ItemFactory: has-a
+TestClub --* ItemData: has-a
+TestClub --* UserData: has-a
+TestClub --* AdminUser: has-a
+TestClub --* Registry: has-a
+TestClub --* IOException: has-a
+
+class AdminUser {
+  - scanny: Scanner
+  - loggedIn: boolean
+  + dMap: Map<String, ItemData>
+  + AdminUser(userData: UserData)
+  + userExperience(): void
+  + clubRegistryTestInput(): void
+  + loggedIn(): void
+  + isLoggedIn(): boolean
+  + setLoggedIn(loggedIn: boolean): void
+  + addEmployeeRoles(): void
+}
+class ClubOperation {
+     <<enumeration>>
+  accessEstablishment,
+  openTab,
+  serveDrinks,
+  rejectEntry,
+  enforceRules,
+  manageRoles,
+  manageOperations,
+  manageEmployees,
+  reviewDataDashboard,
+  accessStage,
+  accessGreenRoom,
+}
+class Role {
+    <<interface>>
++ getRoleName(): String
++ getOperations(): ClubOperation[]
+}
+class DummyRole {
+  <<enumeration>>
+  - PATRON
+  - BARTENDER
+  - TALENT
+  - SECURITY
+  - ADMINISTRATOR
+  - MANAGER
+}
+class DummyRole {
+  - roleName: String
+  - operations: ClubOperation[]
+  + DummyRole(roleName: String, operations: ClubOperation[])
+  + getRoleName(): String
+  + getOperations(): ClubOperation[]
+}
+class DummyUser {
+    - final username: String
+    - final roles: DummyRole[]
+    - final password: String
+    - final email: String
+    - final age: int
+    - final name: String
+    + getUsername(): String
+    + getRoles(): DummyRole[]
+    + getPassword(): String
+    + getAge(): int
+    + getEmail(): String
+    + getName(): String
+    + toString(): String
+}
+class FactoryInterface {
+    <<interfac>>
+    + buildUser(desiredUsername: String, name: String, desiredEmail: String, age: int, passwd: String): void
+    + buildPatronUser(uData: UserData): DummyUser
+}
+class FirstSprintDemo {
+    +demo()
+}
+class Login {
+    +login(userMap: Map<String, DummyUser>)
+}
+
+class Registry {
+    +registerUser()
+}
+class Scanner {
+    +nextLine(): String
+}
+class Objects {
+    +equals(a: Object, b: Object): boolean
+}
+class ItemData {
+    - name: String
+    - description: String
+    - parameters: String[]
+    - price: float
+    + ItemType enum
+    + ItemData(name: String, description: String, parameters: String[], price: float)
+    + getName(): String
+    + setName(name: String): void
+    + getDescription(): String
+    + setDescription(description: String): void
+    + getParameters(): String[]
+    + setParameters(parameters: String[]): void
+    + getPrice(): float
+    + setPrice(price: float): void
+    + toString(): String
+}
+class ItemFactory {
+    +buildItem(itemName: String, description: String, parameters: ArrayList[], price: float, type: ItemType): ItemData
+    +buildNewDrink(itemName: String, description: String, parameters: ArrayList[], price: float): ItemData
+    -buildFoodItem(): ItemData
+}
+class ItemType {
+    <<enumeration>>
+    FOOD,
+    DRINKS
+}
+class ItemData {
+    -name: String
+    -description: String
+    -parameters: String[]
+    -price: float
+
+    +ItemData(name: String, description: String, parameters: String[], price: float)
+    +getName(): String
+    +getDescription(): String
+    +getParameters(): String[]
+    +getPrice(): float
+    +setName(name: String): void
+    +setDescription(description: String): void
+    +setParameters(parameters: String[]): void
+    +setPrice(price: float): void
+    +toString(): String
+}
+class Login {
+    + login(Map umap)
+    - testAuthenticate(UserData user, String passwordInput): DummyUser
+    - printUserRole(DummyUser user)
+}
+class Main {
+    +main(args: String[]): void
+}
+class PatronUser {
+    +PatronUser(userData: UserData)
+    +userExperience()
+    +loggedIn()
+}
+class Registry {
+    - static json: String
+    - static userMap: Map<String, UserData>
+    - static mapper: ObjectMapper
+    - static scanner: Scanner
+    + static Map<String, UserData> getUserMap()
+    + static void WriteJSON()
+    + static String ReadMasterRegistryJSON()
+    + protected static void addUserToMap(UserData uData)
+    + static void registerUser()
+    - static String setNewUserPassword(String uName)
+    - static boolean verifyPassword(String p1, String p2)
+    + static boolean uniqueUserChecker(String n)
+    + static boolean uniqueUserEmailChecker(String e)
+    + static void writeToClubDB(TestClub club)
+    + static String readFromClubDB()
+}
+class TestClub {
+    - employees: Map<String, UserData>
+    - scanny: Scanner
+    - adminUser: AdminUser
+    - clubName: String
+    - testMenu: TestMenu
+    - itemFactory: ItemFactory
+    + TestClub(clubName: String, itemMenu: TestMenu, itemFactory: ItemFactory, employees: Map<String, UserData>, testAdminUser: AdminUser)
+    + getClubName(): String
+    + setClubName(clubName: String): void
+    + addMenuItemTestInput(): void
+    + serveDrink(drink: String): void
+    + addItemToMenu(item: String, itemData: ItemData): void
+    + getItem(itemName: String): ItemData
+    + adminPortal(adminUser: AdminUser): void
+    - addEmployees(): void
+}
+class TestMenu {
+    - itemMap: Map<String, ItemData>
+    + TestMenu(iMap: Map<String, ItemData>)
+    + getItemData(itemName: String): ItemData
+    - addToMenu(itemData: ItemData): void
+}
+class User {
+    <<interface>>
+    +userExperience(): void
+    +getUsername(): String
+    +getRoles(): DummyRole[]
+    +getPassword(): String
+    +getAge(): int
+    +getEmail(): String
+    +getName(): String
+    +loggedIn(): void throws IOException
+}
+class UserData {
+    + name: String
+    + age: int
+    + password: String
+    + isAdmin: boolean
+    + userName: String
+    + email: String
+    + roles: DummyRole[]
+}
+class UserFactory {
+    - buildNewUserData(desiredUsername: String, name: String, desiredEmail: String, age: int, passwd: String): void
+    + buildValidatedUser(userData: UserData): DummyUser
+    + buildAdminUser(uData: UserData): AdminUser
+    + buildUser(user: UserData): DummyUser
+    (abstract) + buildPatronUser(uData: UserData): DummyUser
+}

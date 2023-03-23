@@ -2,7 +2,6 @@ package ConfirmationEmail;
 
 import com.google.gson.Gson;
 
-import java.io.ObjectInputFilter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.Objects;
@@ -15,15 +14,11 @@ public class EmailFacade {
         //System.out.println(code);
 
         //send code to user
-        System.out.println("checkpoint 1");
         try {
-            System.out.println("checkpoint 2");
             Gson g = new Gson();
-            System.out.println("checkpoint 3");
             Scanner fs = new Scanner(Paths.get(Objects.requireNonNull(
-                    Main.class.getClassLoader().getResource("ConfirmationEmail/EmailConfig.json")).toURI()),
+                    Main.class.getClassLoader().getResource("EmailConfig.json")).toURI()),
                     StandardCharsets.UTF_8);
-            System.out.println("checkpoint 4");
             EmailConfig c = g.fromJson(fs.useDelimiter("\\A").next(), EmailConfig.class);
 
             // Recipient's email ID needs to be mentioned.
@@ -52,5 +47,28 @@ public class EmailFacade {
             System.out.println("Sorry but the code you entered does not match the one we sent you.");
         }
 
+    }
+
+    public static void SendEmail (String email, String subject, String body) {
+        try {
+            Gson g = new Gson();
+            System.out.println("1");
+            Scanner fs = new Scanner(Paths.get(Objects.requireNonNull(
+                    Main.class.getClassLoader().getResource("EmailConfig.json")).toURI()),
+                    StandardCharsets.UTF_8);
+            System.out.println("2");
+            EmailConfig c = g.fromJson(fs.useDelimiter("\\A").next(), EmailConfig.class);
+            System.out.println("3");
+
+            // Recipient's email ID needs to be mentioned.
+            // Sender's email ID needs to be mentioned
+            String from = "noreply.diskotek@gmail.com";
+            SendEmail client = new SendEmail(
+                    c.getMailHost(), c.getMailPort(), c.getUserName(), c.getPassword(),
+                    c.getEncryptionType(), c.getDoAuth());
+            client.send(email, from, subject, body);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 }
