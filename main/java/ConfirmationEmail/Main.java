@@ -2,7 +2,6 @@ package ConfirmationEmail;
 
 import com.google.gson.Gson;
 
-import java.io.ObjectInputFilter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.Objects;
@@ -29,7 +28,7 @@ public class Main {
             Gson g = new Gson();
             System.out.println("checkpoint 3");
             Scanner fs = new Scanner(Paths.get(Objects.requireNonNull(
-                    Main.class.getClassLoader().getResource("ConfirmationEmail/EmailConfig.json")).toURI()),
+                    Main.class.getClassLoader().getResource("EmailConfig.json")).toURI()),
                     StandardCharsets.UTF_8);
             System.out.println("checkpoint 4");
             EmailConfig c = g.fromJson(fs.useDelimiter("\\A").next(), EmailConfig.class);
