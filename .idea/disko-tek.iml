@@ -16,10 +16,12 @@
     <orderEntry type="library" exported="" name="openjfx.javafx.graphics" level="project" />
     <orderEntry type="library" exported="" name="jackson-annotations-2.14.2" level="project" />
     <orderEntry type="library" exported="" name="google.code.gson" level="project" />
-    <orderEntry type="library" exported="" name="angus-activation-2.0.0" level="project" />
-    <orderEntry type="library" exported="" name="angus-mail-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="gson-2.10.1" level="project" />
-    <orderEntry type="library" exported="" name="jakarta.activation-api-2.1.1" level="project" />
-    <orderEntry type="library" exported="" name="jakarta.mail-api-2.1.1" level="project" />
+    <orderEntry type="library" exported="" name="google.zxing.core" level="project" />
+    <orderEntry type="library" exported="" name="google.zxing.javase" level="project" />
+    <orderEntry type="library" exported="" name="eclipse.angus.jakarta.mail" level="project" />
+    <orderEntry type="library" exported="" name="eclipse.angus.activation" level="project" />
+    <orderEntry type="library" exported="" name="jakarta.mail.api" level="project" />
+    <orderEntry type="library" exported="" name="jakarta.activation.api" level="project" />
   </component>
 </module>
