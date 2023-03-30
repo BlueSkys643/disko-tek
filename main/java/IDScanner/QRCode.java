@@ -104,6 +104,4 @@ public class QRCode {
             return null;
         }
     }
-
-
 }
