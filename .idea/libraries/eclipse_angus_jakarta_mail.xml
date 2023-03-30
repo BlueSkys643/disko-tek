@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="eclipse.angus.jakarta.mail" type="repository">
+    <properties maven-id="org.eclipse.angus:jakarta.mail:2.0.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jakarta.mail-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jakarta.activation-api-2.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/angus-activation-2.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
