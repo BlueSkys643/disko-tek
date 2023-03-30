@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <link rel="shortcut icon" href = "favi.png">
+   <title>Diskotek | Log in</title>
+   <link rel = "stylesheet" href = "page.css"/>
+   <script src = "page.js"></script>
+</head>
+
+<body id = "body" class = "uk-flex-center uk-height-viewport">
+
+   <img src = "logo.png" id = "logo_watermark"></img>
+   
+   
+ <!--CARD 1 - EMAIL, USERNAME, PASSWORD-->
+   <div id="email_username_password" class="uk-flex uk-flex-center uk-flex-middle menuCard">
+      <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-height-expand">
+         <h3 class="uk-card-title">Welcome back.</h3>
+         <p>Let's get you logged in.</p>
+    
+         <div class="uk-margin input">
+            <div class="uk-inline">
+               <span class="uk-form-icon" uk-icon="icon: user"></span>
+			   <!-- USERNAME INPUT -->
+               <input class="uk-input" oninput = "validateUsername()" id = "usernameBox" maxlength = "12" type="text" aria-label="Not clickable icon" placeholder="Username" uk-tooltip = "title: Go ahead, pick a fun username!; pos: right" required>
+            </div>
+            <span class = "valid_icon" id = "usernameValidIcon" uk-icon="icon: check"></span>
+         </div>
+         <div class="uk-margin input">
+            <div class="uk-inline">
+               <span class="uk-form-icon" uk-icon="icon: eye-slash"></span>
+			   <!-- PASSWORD INPUT -->
+               <input oninput = "validatePassword()" id = "passwordBox" class="uk-input" type="password" aria-label="Not clickable icon" placeholder="Password" uk-tooltip = "title: Gotta have that password.; pos: right" required>
+            </div>
+            <span class = "valid_icon" id = "passwordValidIcon" uk-icon="icon: check"></span>
+         </div>
+         <button onclick = "validateInput()" >Log in</button>
+      </div>
+   </div>
+   
+      
+</body>
+
+
+
+<script>
+VANTA.TOPOLOGY({
+  el: "#body",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 5.00,
+  scaleMobile: 1.00,
+  color: 0xffc0cb,
+  backgroundColor: 0xac6876
+});
+</script>
+
+<script src = "login.js"></script>
+
+
+</html>
+
+
