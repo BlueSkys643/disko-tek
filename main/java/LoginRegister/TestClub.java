@@ -91,7 +91,6 @@ public class TestClub {
         else {
             adminPortal(adminUser);
         }
-
     }
 
     private void addEmployees() throws IOException {
@@ -102,7 +101,6 @@ public class TestClub {
         if (Objects.equals(answer, "yes")) {
             this.employees.put(testEmployee1.userName, testEmployee1);
         }
-
     }
 }
 
