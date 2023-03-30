@@ -26,7 +26,7 @@ public class Registry {
         }
     }
     private static ObjectMapper mapper = new ObjectMapper();
-    static Map<String, UserData> userMap;
+    public static Map<String, UserData> userMap;
 
     static {
         try {
