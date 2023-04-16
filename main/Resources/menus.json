@@ -1,0 +1,27 @@
+{
+  "Club5crum" : {
+    "beer": {
+      "name": "beer",
+      "description": "delicious beer",
+      "parameters": [
+        "big ass beer",
+        "with ice",
+        "other params"
+      ],
+      "price": 6.25,
+      "itemType": "DRINKS"
+    },
+    "whiskey": {
+      "name": "whiskey",
+      "description": "gut rotting whiskey",
+      "parameters": [
+        "on the rocks",
+        "straight",
+        "double"
+      ],
+      "price": 5.5,
+      "itemType": "DRINKS"
+    }
+  }
+}
+
