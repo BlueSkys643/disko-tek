@@ -44,10 +44,9 @@ public class AdminUser extends DummyUser {
     public void loggedIn() throws IOException {
         this.loggedIn = true;
         System.out.println("Welcome admin user " + getUsername());
-        Map<String, UserData> clubEmployeData = new HashMap<>();
-        TestMenu testMenu = new TestMenu(dMap);
-        ItemFactory itemFactory = new ItemFactory();
-        TestClub testClub = new TestClub("club 5crum", testMenu, itemFactory, clubEmployeData, this);
+//        Map<String, UserData> clubEmployeData = new HashMap<>();
+
+        TestClub testClub = new TestClub();
         testClub.adminPortal(this);
     }
     public boolean isLoggedIn() {

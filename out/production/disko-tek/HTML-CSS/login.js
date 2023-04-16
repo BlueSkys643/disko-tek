@@ -63,40 +63,6 @@ var validatePassword = function() {
 
 var validateInput = function(){
 
- $.getJSON("test_registry.json", function(data) {
-    // Loop through each object in the data
-    $.each(data, function(key, value) {
- 
-  var username = $('#usernameBox').val();
-        var password = $('#passwordBox').val();
-        var found = false;
-
-          if (value.userName === username && value.password === password) {
-            found = true;
-            console.log('Login successful!');
-			  UIkit.notification({message: "Login successful. Redirecting..."});
-	    localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
-			window.location.replace('/diskotek/');
-            return false; // break out of the $.each() loop
-          } else {
-       
-	    UIkit.notification({message: "Invalid username/password."});
-          console.log('Invalid username or password');
-		  }
- 
- 
-    });
-  });
-  
-  
-};
-
-
-
-
-
-
 };
 
 

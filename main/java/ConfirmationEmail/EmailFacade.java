@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.Scanner;
 import java.lang.Math;
+import Final.Main;
 
 public class EmailFacade {
     public static void confirmEmail (String email) {

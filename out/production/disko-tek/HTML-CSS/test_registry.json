@@ -19,22 +19,5 @@
     "email" : "s@gmail.com",
     "roles" : [ "PATRON" ],
     "DOB" : "1/1/1991"
-
-  },
-  
-  
-    "chan" : {
-    "name" : "Chan Mrotzek",
-    "age" : 21,
-    "password" : "Chanisthebest12345!",
-    "isAdmin" : false,
-    "userName" : "chanmrotzek",
-    "email" : "chan@gmail.com",
-    "roles" : [ "PATRON" ],
-    "DOB" : "1/1/1991"
   }
- 
-  
-  }
-
 }

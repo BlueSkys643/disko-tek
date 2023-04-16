@@ -7,7 +7,6 @@ public class PatronUser extends DummyUser{
 
     @Override
     public void userExperience() {
-
     }
 
     public void loggedIn() {
