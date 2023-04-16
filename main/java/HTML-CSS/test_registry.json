@@ -1,0 +1,37 @@
+{
+  "josh333" : {
+    "name" : "josh",
+    "age" : 21,
+    "password" : "42f749ade7f9e195bf475f37a44cafcb",
+    "isAdmin" : true,
+    "userName" : "josh333",
+    "email" : "joshy@josh.josh",
+    "roles" : [ "PATRON" ],
+    "DOB" : "1/1/1991"
+
+  },
+  "sky" : {
+    "name" : "bob marley",
+    "age" : 24,
+    "password" : "123",
+    "isAdmin" : false,
+    "userName" : "sky",
+    "email" : "s@gmail.com",
+    "roles" : [ "PATRON" ],
+    "DOB" : "1/1/1991"
+  },
+  
+  
+    "chan" : {
+    "name" : "Chan Mrotzek",
+    "age" : 21,
+    "password" : "Chanisthebest12345!",
+    "isAdmin" : false,
+    "userName" : "chanmrotzek",
+    "email" : "chan@gmail.com",
+    "roles" : [ "PATRON" ],
+    "DOB" : "1/1/1991"
+  }
+ 
+  
+}
