@@ -75,33 +75,38 @@ var value = document.getElementById('nameBox').value;
 
 };
 
-//validate username
-var validateUsername = function(){
+var validateUsername = function() {
+  var value = document.getElementById('usernameBox').value;
 
-var value = document.getElementById('usernameBox').value;
-
- if (value == '') {
+  if (value == '') {
     // display the validation errors
-  usernameBoxFilledIn = false;
-		//console.log("that's not an username, dumbass");
-		document.getElementById('usernameValidIcon').style.opacity = "100%";
-		document.getElementById('usernameValidIcon').style.backgroundColor = "red";
-		document.getElementById('usernameValidIcon').setAttribute('uk-icon', "icon: close");
-		user_username = '';
-  
+    usernameBoxFilledIn = false;
+    document.getElementById('usernameValidIcon').style.opacity = "100%";
+    document.getElementById('usernameValidIcon').style.backgroundColor = "red";
+    document.getElementById('usernameValidIcon').setAttribute('uk-icon', "icon: close");
+    user_username = '';
   } else {
-    // display a success message
-	usernameBoxFilledIn = true;
-   // console.log('username be good');
-	document.getElementById('usernameValidIcon').style.opacity = "100%";
-	document.getElementById('usernameValidIcon').style.backgroundColor = "#32d296";
-	document.getElementById('usernameValidIcon').setAttribute('uk-icon', "icon: check");
-	user_username = value;
-	
+    $.getJSON("test_registry.json", function(data) {
+      if (data[value]) {
+        // display the validation errors
+        usernameBoxFilledIn = false;
+        document.getElementById('usernameValidIcon').style.opacity = "100%";
+        document.getElementById('usernameValidIcon').style.backgroundColor = "red";
+        document.getElementById('usernameValidIcon').setAttribute('uk-icon', "icon: close");
+        user_username = '';
+      } else {
+        // display a success message
+        usernameBoxFilledIn = true;
+        document.getElementById('usernameValidIcon').style.opacity = "100%";
+        document.getElementById('usernameValidIcon').style.backgroundColor = "#32d296";
+        document.getElementById('usernameValidIcon').setAttribute('uk-icon', "icon: check");
+        user_username = value;
+      } 
+      // wrap the rest of the code here
+    });
   }
-  
-
 };
+
 
 //validate email address
 var validateEmail = function() {
@@ -219,7 +224,7 @@ validatePassword();
 
 
 if (!usernameBoxFilledIn) {
-  UIkit.notification({message: "Please enter a username."});
+  UIkit.notification({message: "That username is invalid, or taken already."});
 }
 
 if (!emailIsValid) {
@@ -239,27 +244,61 @@ if (usernameBoxFilledIn && emailIsValid && passwordIsValid) {
 
 
 };
+var create_account = function() {
+	
 
-//create the user account
-var create_account = function(){
+ document.getElementById('finalValidateButton').style.pointerEvents = "none";
+ document.getElementById('finalValidateButton').style.opacity = "75%"; 
+ 
+  validateDate();
+  validateName();
+  validateEmail();
+  validateUsername();
+  validatePassword();
+  convertAge();
 
-validateDate();
-validateName();
+  const diskotekUser = new user(user_name, user_DOB_converted, user_age, user_email, user_username, user_password);
 
-validateEmail();
-validateUsername();
-validatePassword();
+  console.log(diskotekUser);
 
-convertAge();
+  $.getJSON("test_registry.json", function(data) {
+    if (data[diskotekUser.username]) {
+      UIkit.notification({message: "This account already exists. Please try again."});
+	  setTimeout(function(){
+		  window.location.reload(true);
+	  },3000);
+      return;
+    }
 
+    data[diskotekUser.username] = {
+      name: diskotekUser.name,
+      age: diskotekUser.age,
+      password: diskotekUser.password,
+      isAdmin: false,
+      userName: diskotekUser.username,
+      email: diskotekUser.email,
+      roles: ["PATRON"],
+      DOB: diskotekUser.DOB
+    };
+    $.ajax({
+      type: "POST",
+      url: "script.php",
+      data: {json: JSON.stringify(data)},
+      success: function(response){
+        console.log(response);
+      }
+    });
+  });
 
-const diskotekUser = new user(user_name, user_DOB_converted, user_age, user_email, user_username, user_password);
-
-console.log(diskotekUser);
-
-  UIkit.notification({message: "Nice, you did it! Check the console."});
-
+  UIkit.notification({message: "You created an account! Redirecting..."});
+  
+  setTimeout(function(){
+	  window.location.replace('login.html');
+  },3000);
+  
 };
+
+
 
 //the user object
 var user = function(name, DOB, age, email, username, password) {

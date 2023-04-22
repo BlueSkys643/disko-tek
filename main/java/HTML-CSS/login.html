@@ -13,7 +13,6 @@
    <img src = "logo.png" id = "logo_watermark"></img>
    
    <button onclick = "window.location.href = 'https://nuken.xyz/diskotek'" id ="logout_button"  ><span uk-icon="sign-out"></span> Back</button>
-
    
  <!--CARD 1 - EMAIL, USERNAME, PASSWORD-->
    <div id="email_username_password" class="uk-flex uk-flex-center uk-flex-middle menuCard">
@@ -25,11 +24,7 @@
             <div class="uk-inline">
                <span class="uk-form-icon" uk-icon="icon: user"></span>
 			   <!-- USERNAME INPUT -->
-
                <input class="uk-input" oninput = "validateUsername()" id = "usernameBox" maxlength = "12" type="text" aria-label="Not clickable icon" placeholder="Username" uk-tooltip = "title: Who are you again?; pos: right" required>
-
-               <input class="uk-input" oninput = "validateUsername()" id = "usernameBox" maxlength = "12" type="text" aria-label="Not clickable icon" placeholder="Username" uk-tooltip = "title: Go ahead, pick a fun username!; pos: right" required>
-
             </div>
             <span class = "valid_icon" id = "usernameValidIcon" uk-icon="icon: check"></span>
          </div>
