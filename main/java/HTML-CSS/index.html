@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <link rel="shortcut icon" href = "favi.png">
+   <title>Diskotek</title>
+   <link rel = "stylesheet" href = "page.css"/>
+   <script src = "page.js"></script>
+   
+<meta name="keywords" content="Diskotek">
+<meta name="description" content="The night life experience of the future.">
+<meta name="author" content="Scrum Team 5">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+   <style>
+   
+   .menuCard {
+       transform: scale(0.9);
+    transition: all 0.5s 0s, opacity 0.5s 0.10s;
+    opacity: 0%;
+    transition-timing-function: cubic-bezier(0.5,0,0,1.1);
+    margin-top: 20vmin;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    margin: 0vmin 0vmin 0vmin 0vmin;
+    height: 100%;
+   }
+   
+   .menuCard .uk-card {
+   width:100%;
+   height:80%;
+   }
+   
+   
+.uk-grid {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex; /* add flexbox display */
+}
+
+.menuCard .uk-width-1-3 {
+  background-color: pink;
+  height: 85%;
+  box-sizing: border-box;
+  margin: 1.5vmin;
+  flex: 1; /* add flexbox property */
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  cursor:pointer;
+}
+
+.menuCard .uk-width-1-3:hover {
+    outline: 0;
+	transition: all 0.1s;
+	transform:scale(1.025)!important;
+	transform-origin:center;
+}
+
+
+.fade-in {
+      animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+	opacity: 0;
+  transition: all 0.5s;
+  transition-timing-function:cubic-bezier(0.5,0,0,1.1);
+  transform:scale(0.9);
+}
+
+.uk-width-1-3 p {
+  margin: 0;
+  text-align: center;
+  position:absolute;
+  font-size:5vmin;
+  margin-left:-3.5vmin;
+}
+
+.uk-width-1-3 span {
+font-size:5vmin;
+}
+
+#user_icon {
+    display: inline-block;
+    padding: 1vmin;
+    background-color: black;
+    border-radius: 100%;
+    color: white;
+    font-weight: 900;
+    margin-right: 2vmin;
+	margin-top:-0.75vmin;
+}
+
+   
+   </style>
+</head>
+
+<body id = "body" class = "uk-flex-center uk-height-viewport">
+
+   <img src = "logo.png" id = "logo_watermark"></img>
+   
+   <button onclick = "logoutUser()" id ="logout_button"  ><span uk-icon="sign-out"></span> Log out</button>
+   
+ <div id="user_dashboard" class="uk-flex uk-flex-center uk-flex-middle menuCard">
+      <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-height-expand">
+         <h3 class="uk-card-title" id = "username" ></h3>
+		 
+ <div class="uk-grid">
+    <div class="uk-width-1-3 fade-in" >
+    <p> <span uk-icon="icon:thumbnails; ratio:2"></span><br> Menu</p>
+    </div>
+    <div class="uk-width-1-3 fade-in">
+     
+	 <p> <span uk-icon="icon:paint-bucket; ratio:2"></span> <br>Drinks</p>
+    </div>
+    <div class="uk-width-1-3 fade-in">
+
+<p> <span uk-icon="icon:users; ratio:2"></span> <br> Account</p>
+    </div>
+  </div>
+    
+	
+        
+      </div>
+   </div>
+      
+</body>
+
+
+
+<script>
+VANTA.TOPOLOGY({
+  el: "#body",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 5.00,
+  scaleMobile: 1.00,
+  color: 0xffc0cb,
+  backgroundColor: 0xac6876
+});
+
+</script>
+
+<script> 
+
+
+
+// Get the username and password from local storage
+var storedUsername = localStorage.getItem('username');
+var storedPassword = localStorage.getItem('password');
+
+
+if (storedUsername === '' || storedPassword === ''){
+window.location.replace('splash.html');
+}
+
+
+var logoutUser = function(){
+localStorage.setItem('username', '');
+localStorage.setItem('password', '');
+window.location.replace('/diskotek/login.html');
+};
+
+
+$(document).ready(function() {
+
+document.getElementById('username').innerHTML = "<span id = 'user_icon' uk-icon = 'user' ></span>"+storedUsername;
+
+setTimeout(function(){
+
+const inputs = document.querySelectorAll(".fade-in");
+
+for (let i = 0; i < inputs.length; i++) {
+  inputs[i].style.opacity = "0";
+  setTimeout(() => {
+    inputs[i].style.opacity = "1";
+	inputs[i].style.transform = "scale(1)";
+  }, i * 100); // Adjust the delay time (500ms) for the desired animation effect
+}
+
+},1000);
+
+
+});
+
+</script>
+
+
+</html>
+
+

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="shortcut icon" href = "favi.png">
+   <title>Diskotek</title>
+         <link rel = "stylesheet" href = "../stylesheets/w3.css"/>
+   <link rel = "stylesheet" href = "page.css"/>
+   <script src = "page.js"></script>
+
+<style>
+
+#myNavbar {
+border-radius:0px;
+background-color:transparent!important;
+border:none;
+box-shadow:none;
+}
+
+button {
+width:49%;
+}
+
+</style>
+</head>
+<body id = "body" class = "uk-flex-center uk-height-viewport">
+
+ <img src = "logo.png" id = "logo_watermark"></img>
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-card" id="myNavbar">
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small" style = "margin:1.5vmin;color:white;font-family:'Prompt';font-weight:900;letter-spacing:1.25px;" >
+      <a href="signup.html" class="w3-bar-item w3-button"><i class="ri-book-mark-fill"></i> <span>Sign up</span></a>
+      <a href="login.html" style = "margin-right:1.5vmin" class="w3-bar-item w3-button"><i class="ri-chat-4-fill"></i> <span>Login</span></a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+  </div>
+</div>
+
+   
+    <div id="email_username_password" class="uk-flex uk-flex-center uk-flex-middle menuCard">
+      <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-height-expand">
+         <h3 class="uk-card-title">Welcome to Diskotek.</h3>
+         <p>Your night life experience of the future begins... now. Just sign up, then log in. Sounds simple enough, let's hope this works!</p>
+    
+         
+		 
+         <button onclick = "window.location.href = 'signup.html';" >Sign up</button>
+		 <button onclick = "window.location.href = 'login.html';" >Log in</button>
+      </div>
+   </div>
+   
+</body>
+
+<!-- Header with full-height image -->
+
+ 
+<script>
+VANTA.TOPOLOGY({
+  el: "#body",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: true,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 5.00,
+  scaleMobile: 1.00,
+  color: 0xffc0cb,
+  backgroundColor: 0xac6876
+});
+</script>
+
+</body>
+</html>
