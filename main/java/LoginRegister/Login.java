@@ -73,7 +73,7 @@ public class Login {
         for (DummyRole role : user.getRoles()) { //loop through all the roles of that user
             System.out.println("\t\tRole: " + role.getRoleName()); //print the role name
             for (ClubOperation operation : role.getOperations()) {  //loop through the operations associated with each role
-                System.out.println("\t\t\tOperation: " + operation.name()); //print the operation name
+                System.out.println("\t\t\tOperation: " + operation); //print the operation name
             }
         }
     }
