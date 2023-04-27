@@ -3,9 +3,6 @@ package LoginRegister;
 RBAC Design Pattern linking the RegSimUserData to Roles and Operations hard-coded users
 && account login auth
  */
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.Map;
@@ -14,6 +11,12 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Login {
+    public static User loginFromGUI(String uname, String pass) {
+        Map users = Registry.userMap;
+        UserData userData = (UserData) users.get(uname);
+        DummyUser user = testAuthenticate(userData, pass);
+        return user;
+    }
     public static void login(Map umap) {
         //Scanner initialized
         Scanner sc = new Scanner(System.in);
@@ -22,11 +25,7 @@ public class Login {
         System.out.print("Enter your password: ");
         String password = sc.nextLine(); //saves what's entered to String password variable
         //DummyUser array holding all the hard-coded users at this point, with roles assigned, and passwords
-        try {
-            Map<String,UserData> uMap = Registry.getUserMap();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
         try {
             //check if username or password is empty
             if (username.isEmpty() || password.isEmpty()) {
@@ -73,7 +72,7 @@ public class Login {
         for (DummyRole role : user.getRoles()) { //loop through all the roles of that user
             System.out.println("\t\tRole: " + role.getRoleName()); //print the role name
             for (ClubOperation operation : role.getOperations()) {  //loop through the operations associated with each role
-                System.out.println("\t\t\tOperation: " + operation.name()); //print the operation name
+                System.out.println("\t\t\tOperation: " + operation); //print the operation name
             }
         }
     }

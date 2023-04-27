@@ -12,7 +12,7 @@ import jakarta.mail.internet.MimeMessage;
 
 public class SendEmail {
     //grab the imports
-    //setup the project structure
+    //set up the project structure
     //write the email code
     private boolean debug = false;
     private final Properties properties;
