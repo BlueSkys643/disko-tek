@@ -1,14 +1,7 @@
-pa
-    public String getName() {
-        return name;
-    }
+package LoginRegister;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String gckage LoginRegister;
 
-    public class ItemData {
+public class ItemData {
         public String name;
         public String description;
         public String[] parameters;
@@ -28,7 +21,9 @@ pa
             this.parameters = parameters;
             this.price = price;
             this.itemType = itemType;
-        }etDescription() {
+        }
+
+        public String getDescription() {
         return description;
     }
 
@@ -66,4 +61,14 @@ pa
 //    public void setAdditionalProperty(String name, Object value) {
 //        this.additionalProperties.put(name, value);
 //    }
-}
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String g;
+    }

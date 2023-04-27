@@ -62,7 +62,33 @@ var validatePassword = function() {
 }
 
 var validateInput = function(){
+  var username = $('#usernameBox').val();
+  var password = $('#passwordBox').val();
+  var found = false;
 
+  $.getJSON("test_registry.json", function(data) {
+    // Loop through each object in the data
+    $.each(data, function(key, value) {
+      if (value.userName === username && value.password === password) {
+        found = true;
+        console.log('Login successful!');
+        UIkit.notification({message: "You're logged in! Redirecting..."});
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        window.location.replace('/diskotek/');
+        return false; // break out of the $.each() loop
+      }
+    });
+    
+    if (!found) {
+      UIkit.notification({message: "That's an invalid username/password."});
+      console.log('Invalid username or password');
+    }
+  });
 };
+
+
+
+
 
 
