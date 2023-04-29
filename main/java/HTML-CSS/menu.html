@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diskotek | Menu</title>
+    <link rel="stylesheet" href="page.css"/>
+    <script src="page.js"></script>
+</head>
+
+<body id="body" class="uk-flex-center uk-height-viewport">
+
+<img src="logo.png" id="logo_watermark">
+
+<button onclick="window.location.href = 'https://nuken.xyz/diskotek'" id="logout_button"><span uk-icon="sign-out"></span> Back</button>
+
+<div id="menu_holder" class="uk-flex uk-flex-center uk-flex-middle menuCard">
+    <div id="menu-container">
+        <h2>Tacos</h2>
+        <p>fresh tacos 4 sale</p>
+        <p>$8.99</p>
+    </div>
+</div>
+
+<script>
+        fetch('main.Resources/menus.json')
+            .then(response => response.json())
+            .then(data => {
+                const menu = data.Club5crum;
+                const container = document.getElementById('menu-container');
+                Object.keys(menu).forEach(itemKey => {
+                    const item = menu[itemKey];
+                    const itemElement = document.createElement('div');
+                    itemElement.innerHTML = `
+                        <h2>${item.name}</h2>
+                        <p>${item.description}</p>
+                        <p>Parameters: ${item.parameters.join(', ')}</p>
+                        <p>Price: $${item.price.toFixed(2)}</p>
+                        <p>Item type: ${item.itemType}</p>
+                        <hr>
+                    `;
+                    container.appendChild(itemElement);
+                });
+            });
+</script>
+
+</body>
+</html>

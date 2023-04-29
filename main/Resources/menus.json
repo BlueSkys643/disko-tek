@@ -21,6 +21,18 @@
       ],
       "price": 5.5,
       "itemType": "DRINKS"
+    },
+    "fishTaco": {
+      "name": "Fish tacos",
+      "description": "baja style fried halibut tacos, 2 count.",
+      "parameters": [
+        "2 tacos",
+        "fried halibut",
+        "sour cream",
+        "red cabbage slaw"
+      ],
+      "price": 10.79,
+      "itemType": "FOOD"
     }
   }
 }
